@@ -3,16 +3,20 @@ import mongoose from "mongoose";
 const pickupRequestSchema = new mongoose.Schema(
   {
     //In MongoDB (with Mongoose), a reference is a way to link documents in different collections. In the schema, this is done using the ref property:
-    customer: {
+    customerId: {
       type: mongoose.Schema.Types.ObjectId, //to create a reference to the user model
       ref: "User", //to create a reference to the user model
-      required: true,
+      required: true, 
     },
-    pickupData: {
+    pickupDate: {
       type: Date,
       required: true,
     },
-    pickUpTime: {
+    pickupTime: {
+      type: String,
+      required: true,
+    },
+    address: {
       type: String,
       required: true,
     },

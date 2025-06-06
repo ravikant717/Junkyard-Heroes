@@ -5,6 +5,7 @@ import { connectDB } from "./lib/db.js";
 //express gives tools to create api
 const app = express();
 import authRoutes from "./routes/auth.route.js"; //importing auth route
+import customerRoutes from "./routes/customer.route.js"; //importing customer route
 import cors from "cors"; //to allow cross-origin requests
 import cookieParser from "cookie-parser"; //to parse cookies in request
 
@@ -21,6 +22,7 @@ app.use(
   })
 );
 app.use("/api/auth", authRoutes);
+app.use("/api/customer", customerRoutes); //customer routes
 
 
 

@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react'
 import {Routes, Route, Navigate} from 'react-router-dom'
-import HomePage from './pages/HomePage'
 import SignupPage from './pages/SignUpPage'
 import LoginPage from './pages/LoginPage'
 import Navbar from './components/Navbar'
 import { useAuthStore } from './store/useAuthStore'
-import CustomerDashboard from './pages/CustomerDashboard'
+import Dashboard from './pages/Dashboard'
 import Loader from './components/Loader'
 import Overview from './components/Overview'
 import PickupRequest from './components/PickupRequest'
 import Requests from './components/Requests'
 import { Toaster } from 'react-hot-toast'
+import ScrapRequest from './components/ScrapRequest'
 // App.jsx - Main application component that sets up routes and authentication checks
 // This file contains the main application logic, including routing and authentication checks.
 // It uses React Router for navigation and Zustand for state management.
@@ -38,9 +38,9 @@ const App = () => {
         <Route path="/login" element = {!authUser ? <LoginPage /> : <Navigate to="/"/>}/>
           {/*NESTED DASHBOARD ROUTES */}
         {authUser && (
-          <Route path="/dashboard" element={<CustomerDashboard />}>
+          <Route path="/dashboard" element={<Dashboard />}>
             <Route index element={<Overview />} />
-            <Route path="request" element={<PickupRequest />} />
+            <Route path="request" element={(authUser.role == 'dealer') ? <ScrapRequest/> : <PickupRequest />} />
             <Route path="my-requests" element={<Requests />} />
           </Route>
         )}

@@ -9,17 +9,14 @@ const SIDEBAR_ITEMS = [
         name: "Overview", icon:BarChart2, color: "#6366f1", href:'/dashboard'
     }, 
     {
-        name: "Request Pickup", icon:GitPullRequest, color: "#10b981", href:'/dashboard/request' // emerald-500
-    }, 
-    {
-        name: "My Requests", icon:BarChart2, color: "#f59e42", href:'/dashboard/my-requests' // orange-400
+        name: "Scrap Requests", icon:GitPullRequest, color: "#10b981", href:'/dashboard/request' // emerald-500
     }, 
     {
         name: "Logout", icon:BarChart2, color: "#ef4444", href:'/logout' // red-500
     }, 
 
 ]
-const Sidebar = () => {
+const DealerSidebar = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
@@ -73,4 +70,4 @@ const Sidebar = () => {
   )
 }
 
-export default Sidebar
+export default DealerSidebar; 

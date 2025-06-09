@@ -1,9 +1,12 @@
 
 import React from 'react'
-import Sidebar from '../components/Sidebar.jsx'
 import { Outlet} from 'react-router-dom'
+import CustomerSidebar from '../components/CustomerSidebar.jsx'
+import DealerSidebar from '../components/DealerSidebar.jsx'
+import { useRole } from '../lib/useRole.js'
 //Dashborad template
-const CustomerDashboard = () => {
+const Dashboard = () => {
+  const role = useRole(); 
   return (
     <div className='flex h-screen bg-gray-900 text-gray-100 overflow-hidden'>
         <div className='fixed inset-0 z-0'>
@@ -11,7 +14,7 @@ const CustomerDashboard = () => {
             <div className='absolute inset-0 backdrop-blur-sm' />
         </div>
 
-        <Sidebar />
+      {role === 'dealer' ? <DealerSidebar /> : <CustomerSidebar />}
         
         <div className='flex-1 ml-16 overflow-y-auto z-10'>
           <Outlet/>
@@ -21,4 +24,4 @@ const CustomerDashboard = () => {
   )
 }
 
-export default CustomerDashboard
+export default Dashboard

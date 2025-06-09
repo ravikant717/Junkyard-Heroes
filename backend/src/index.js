@@ -6,6 +6,7 @@ import { connectDB } from "./lib/db.js";
 const app = express();
 import authRoutes from "./routes/auth.route.js"; //importing auth route
 import customerRoutes from "./routes/customer.route.js"; //importing customer route
+import dealerRoutes from "./routes/dealer.route.js"; //importing dealer route
 import cors from "cors"; //to allow cross-origin requests
 import cookieParser from "cookie-parser"; //to parse cookies in request
 
@@ -23,8 +24,7 @@ app.use(
 );
 app.use("/api/auth", authRoutes);
 app.use("/api/customer", customerRoutes); //customer routes
-
-
+app.use("/api/dealer", dealerRoutes);
 
 app.listen(PORT, () => {
   console.log("Server is running on port: " + PORT);

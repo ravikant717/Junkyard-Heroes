@@ -5,8 +5,8 @@ import {
   getRequestsByCustomer,
   submitFeedback,
 } from "../controllers/customer.controller.js";
-router.post("/", createPickupRequest);
-router.get("/:customerId", getRequestsByCustomer);
-router.put("/:id/feedback", submitFeedback);
+router.post("/pickup", createPickupRequest);
+router.get("/pickup/:customerId", getRequestsByCustomer);
+router.put("/pickup/:id/feedback", submitFeedback);
 
 export default router;

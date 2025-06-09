@@ -7,7 +7,7 @@ export const useCustomerStore = create((set) => ({
   submitPickupRequest: async (data) => {
     set({ isSubmittingPickupRequest: true });
     try {
-      await axiosInstance.post("/customer", data);
+      await axiosInstance.post("/customer/pickup", data);
       toast.success("Pickup request submitted successfully!");
     } catch (error) {
       console.error("Error submitting pickup request:", error);
@@ -20,7 +20,7 @@ export const useCustomerStore = create((set) => ({
   },
   getPickupRequests: async (customerId) => {
     try {
-      const res = await axiosInstance.get(`/customer/${customerId}`);
+      const res = await axiosInstance.get(`/customer/pickup/${customerId}`);
       return res.data;
     } catch (error) {
       console.error("Error fetching pickup requests:", error);
